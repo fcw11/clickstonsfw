@@ -54,7 +54,7 @@ def clicks_to_nsfw(startsub: str, returnall: bool = False):
         sidebar = subreddit.description_html
         if sidebar is None:
             return None
-        hrefs = re.finditer(r'href="(?:[^"]*?reddit\.com)?/?r/(\w+)', sidebar)
+        hrefs = re.finditer(r'href="(?:[^"]*?reddit\.com)?/?r/(\w+)">(?!</a>)', sidebar)
         for i in hrefs:
             try:
                 i = i[1].lower()
